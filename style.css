@@ -1,0 +1,183 @@
+/* animation */
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes out-effect {
+  from {
+  }
+  to {
+    border-color: red;
+    width: 8px;
+    height: 200px;
+    perspective: 500px;
+    border-radius: 30%;
+  }
+}
+@keyframes big-effect {
+  from{
+    scale: 1.0;
+  }
+  to {
+    scale: 2.0;
+  }
+}
+
+/* setting */
+:root {
+  --pri: #13ae5c;
+  --sec: #aef4c4;
+}
+
+/* reset */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* design */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: pink;
+}
+
+.dinosaur {
+  position: relative;
+  top: 100px;
+  margin: 100px auto;
+  width: 600px;
+  height: 400px;
+}
+.dinosaur .hair {
+  position: absolute;
+  border-bottom: 30px solid transparent;
+  border-top: 30px solid transparent;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  animation: blink-effect 1.8s infinite;
+}
+.hair.one {
+  top: -40px;
+  left: 423px;
+  transform: rotate(-46deg);
+  border-left: 50px solid var(--sec);
+}
+.hair.two {
+  top: 20px;
+  left: 470px;
+  transform: rotate(-30deg);
+  border-left: 50px solid var(--sec);
+}
+.hair.three {
+  top: 95px;
+  left: 495px;
+  transform: rotate(-10deg);
+  border-left: 50px solid var(--sec);
+}
+.hair.four {
+  top: 166px;
+  left: 498px;
+  transform: rotate(5deg);
+  border-left: 50px solid var(--sec);
+}
+.hair.five {
+  top: 244px;
+  left: 480px;
+  transform: rotate(19deg);
+  border-left: 50px solid var(--sec);
+}
+
+.dinosaur .head {
+  position: absolute;
+  right: 0;
+  background-color: var(--pri);
+}
+.head.top {
+  top: 0;
+  right: 50px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50% 50% 35% 65% / 46% 47% 53% 54%;
+  z-index: 1;
+}
+.head.bottom {
+  bottom: -3px;
+  left: 60px;
+  width: 350px;
+  height: 300px;
+  border-radius: 100% 0% 53% 47% / 50% 99% 1% 50%;
+}
+
+.dinosaur .eye {
+  position: absolute;
+  width: 25px;
+  height: 45px;
+  top: 100px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: black;
+}
+.eye.left {
+  position: absolute;
+  left: 75px;
+}
+.eye.right {
+  position: absolute;
+  right: 200px;
+}
+
+.dinosaur .nose::after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  z-index: 10;
+  animation: out-effect 1s infinite alternate;
+  background: linear-gradient(red, yellow);
+}
+.dinosaur .nose {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 130px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: black;
+  z-index: 50;
+  animation: big-effect alternate infinite 1s;
+}
+.nose.left {
+  position: absolute;
+  left: 60px;
+}
+.nose.right {
+  position: absolute;
+  left: 100px;
+}
+
+.dinosaur .mouth {
+  position: absolute;
+  width: 130px;
+  top: 180px;
+  left: 60px;
+}
+.mouth.bottom {
+  height: 50px;
+  border: 10px solid black;
+  border-radius: 50%;
+  z-index: 1;
+}
+.mouth.bottom::before {
+  content: "";
+  position: absolute;
+  top: -33px;
+  left: -20px;
+  width: 150px;
+  height: 50px;
+  background: var(--pri);
+}
